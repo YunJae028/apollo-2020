@@ -48,6 +48,7 @@ const Loading = styled.div`
   margin-top: 10px;
 `;
 
+
 const Movies = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -62,17 +63,15 @@ export default () => {
   return (
     <Container>
       <Header>
-        <Title>Apollo 2020</Title>
-        <Subtitle>I love GraphQL</Subtitle>
+        <Title>Movie 📽 </Title>
+        <Subtitle>Recent movies</Subtitle>
       </Header>
       {loading && <Loading>Loading...</Loading>}
-      {!loading && data.movies && (
         <Movies>
-          {data.movies.map(m => (
+          {data?.movies?.map(m => (
             <Movie key={m.id} id={m.id} bg={m.medium_cover_image} />
           ))}
         </Movies>
-      )}
     </Container>
   );
 };
